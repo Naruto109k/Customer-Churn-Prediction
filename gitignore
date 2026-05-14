@@ -1,0 +1,18 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Generated plots (run main.py to reproduce)
+outputs/
+
+# Tests
+tests/
+
+# OS
+.DS_Store
+Thumbs.db
