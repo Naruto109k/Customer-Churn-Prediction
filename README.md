@@ -10,7 +10,7 @@ A machine learning project that predicts employee attrition using **four classif
 
 ## 📌 Overview
 
-This project trains and evaluates four ML models on the [IBM HR Analytics Attrition Dataset](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset) to predict whether an employee will leave the company.
+This project trains and evaluates four ML models on the IBM HR Analytics Attrition Dataset to predict whether an employee will leave the company.
 
 **Every model is implemented from scratch using NumPy** — no `sklearn.ensemble`, no `sklearn.svm`.
 
@@ -29,7 +29,7 @@ This project trains and evaluates four ML models on the [IBM HR Analytics Attrit
 Customer Churn Prediction/
 │
 ├── data/
-│   └── attrition.csv            # IBM HR dataset (download from Kaggle)
+│   └── attrition.csv            # IBM HR dataset (included)
 │
 ├── models/
 │   ├── decision_tree.py         # Base decision tree (Gini impurity)
@@ -46,7 +46,7 @@ Customer Churn Prediction/
 │   ├── shap_analysis.py         # SHAP KernelExplainer for all models
 │   └── lime_analysis.py         # LIME local explanations
 │
-├── outputs/                     # Saved plots (auto-created at runtime)
+├── outputs/                     # Auto-created at runtime — plots saved here
 │
 ├── main.py                      # Entry point — runs everything end to end
 └── requirements.txt
@@ -58,7 +58,7 @@ Customer Churn Prediction/
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/Customer-Churn-Prediction.git
+git clone https://github.com/Naruto109k/Customer-Churn-Prediction.git
 cd Customer-Churn-Prediction
 
 # 2. Create a virtual environment (recommended)
@@ -67,11 +67,9 @@ source venv/bin/activate      # Windows: venv\Scripts\activate
 
 # 3. Install dependencies
 pip install -r requirements.txt
-
-# 4. Add the dataset
-# Download attrition.csv from Kaggle and place it in the data/ folder
-# https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset
 ```
+
+> The dataset is included in `data/attrition.csv` — no extra download needed.
 
 ---
 
@@ -101,7 +99,7 @@ This will:
 | SVM | 81.78% | 0.816 | 0.890 | 12.17s |
 | Gradient Boosting | 79.96% | 0.799 | 0.880 | 42.19s |
 
-**Random Forest** achieved the highest accuracy and AUC-ROC. **Extra Trees** is the standout efficiency winner — nearly identical performance at just 3.7s vs 24.8s, thanks to skipping exhaustive threshold search.
+**Random Forest** achieved the highest accuracy and AUC-ROC. **Extra Trees** is the efficiency standout — nearly identical performance in just 3.7s vs 24.8s, by skipping exhaustive threshold search entirely.
 
 ### Confusion Matrices
 ![Confusion Matrices](outputs/confusion_matrices.png)
@@ -119,7 +117,7 @@ SHAP uses `KernelExplainer` (model-agnostic) to measure how much each feature sh
 
 ![SHAP Combined](outputs/shap_combined.png)
 
-**Key finding:** `StockOptionLevel` and `JobInvolvement` are the top two predictors across **all four models** — a strong cross-model signal that these features genuinely drive attrition.
+**Key finding:** `StockOptionLevel` and `JobInvolvement` rank in the top 2 across **all four models** — a strong cross-model signal that these features genuinely drive attrition.
 
 <details>
 <summary>📈 View individual SHAP beeswarm plots</summary>
@@ -148,7 +146,7 @@ LIME explains a single employee's prediction by fitting a linear model in the ne
 |---|---|
 | ![GBM LIME](outputs/lime_Gradient_Boosting_employee0.png) | ![SVM LIME](outputs/lime_SVM_employee0.png) |
 
-**Key finding:** All four models agree — `StockOptionLevel` is the dominant feature for Employee #0, and high `JobInvolvement` consistently reduces predicted churn risk across every model.
+**Key finding:** All four models agree on Employee #0 — `StockOptionLevel` is the dominant feature, and high `JobInvolvement` consistently reduces predicted churn risk.
 
 ---
 
