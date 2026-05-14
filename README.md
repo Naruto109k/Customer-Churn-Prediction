@@ -4,7 +4,7 @@ A machine learning project that predicts employee attrition using **four classif
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
 ![NumPy](https://img.shields.io/badge/Built%20with-NumPy-lightgrey?logo=numpy)
-![License](https://img.shields.io/badge/License-MIT-green)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ---
 
@@ -176,4 +176,4 @@ lime
 
 ## 📄 License
 
-MIT — free to use, modify, and distribute.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
